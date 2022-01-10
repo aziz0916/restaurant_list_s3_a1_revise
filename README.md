@@ -1,51 +1,49 @@
-# §ÚªºÀ\ÆU²M³æ
-¦¹À\ÆU²M³æ¦¬ÂÃ¤F§Ú³Ì³ßÅwªº8®aÀ\ÆU¡A°£¤F¥i¥H¬İ¨ìÀ\ÆUªº¸Ô²Ó¸ê°T¡AÁÙ¥i¥H³z¹LÀ\ÆU¦WºÙ©ÎÀ\ÆUÃş§O¨Ó§ä¨ì¯S©wªºÀ\ÆU
+# æˆ‘çš„é¤å»³æ¸…å–®
+æ­¤é¤å»³æ¸…å–®æ”¶è—äº†æˆ‘æœ€å–œæ­¡çš„8å®¶é¤å»³ï¼Œé™¤äº†å¯ä»¥çœ‹åˆ°é¤å»³çš„è©³ç´°è³‡è¨Šï¼Œé‚„å¯ä»¥é€éé¤å»³åç¨±æˆ–é¤å»³é¡åˆ¥ä¾†æ‰¾åˆ°ç‰¹å®šçš„é¤å»³
 
-[Demo Website](https://aziz0916.github.io/restaurant_list/)
-
-## ±M®×µe­±
+## å°ˆæ¡ˆç•«é¢
 ![Index](https://github.com/aziz0916/restaurant_list/blob/main/public/img/index.png)
 ![Show](https://github.com/aziz0916/restaurant_list/blob/main/public/img/show.png)
 ![Match](https://github.com/aziz0916/restaurant_list/blob/main/public/img/match.png)
 ![Unmatch](https://github.com/aziz0916/restaurant_list/blob/main/public/img/unmatch.png)
 
-## ±M®×¥\¯à
-1. ¨Ï¥ÎªÌ¥i¥H¦b­º­¶¬İ¨ì©Ò¦³À\ÆU»P¥¦­ÌªºÂ²³æ¸ê®Æ¡G
- - À\ÆU·Ó¤ù
- - À\ÆU¦WºÙ
- - À\ÆU¤ÀÃş
- - À\ÆUµû¤À
-2. ¨Ï¥ÎªÌ¥i¥H¦AÂI¶i¥h¬İÀ\ÆUªº¸Ô²Ó¸ê°T¡G
- - Ãş§O
- - ¦a§}
- - ¹q¸Ü
- - ´y­z
- - ¹Ï¤ù
-3. ¨Ï¥ÎªÌ¥i¥H³z¹L·j´MÀ\ÆU¦WºÙ¨Ó§ä¨ì¯S©wªºÀ\ÆU
-4. ¨Ï¥ÎªÌ¥i¥H³z¹L·j´MÀ\ÆUÃş§O¨Ó§ä¨ì¯S©wªºÀ\ÆU
+## å°ˆæ¡ˆåŠŸèƒ½
+1. ä½¿ç”¨è€…å¯ä»¥åœ¨é¦–é çœ‹åˆ°æ‰€æœ‰é¤å»³èˆ‡å®ƒå€‘çš„ç°¡å–®è³‡æ–™ï¼š
+   + é¤å»³ç…§ç‰‡
+   + é¤å»³åç¨±
+   + é¤å»³åˆ†é¡
+   + é¤å»³è©•åˆ†
+2. ä½¿ç”¨è€…å¯ä»¥å†é»é€²å»çœ‹é¤å»³çš„è©³ç´°è³‡è¨Šï¼š
+   + é¡åˆ¥
+   + åœ°å€
+   + é›»è©±
+   + æè¿°
+   + åœ–ç‰‡
+3. ä½¿ç”¨è€…å¯ä»¥é€éæœå°‹é¤å»³åç¨±ä¾†æ‰¾åˆ°ç‰¹å®šçš„é¤å»³
+4. ä½¿ç”¨è€…å¯ä»¥é€éæœå°‹é¤å»³é¡åˆ¥ä¾†æ‰¾åˆ°ç‰¹å®šçš„é¤å»³
 
-## ¨Ï¥Î¤u¨ã
-- [Visual Studio Code](https://visualstudio.microsoft.com/zh-hant/) - ¶}µoÀô¹Ò
-- [Express](https://www.npmjs.com/package/express) - À³¥Îµ{¦¡¬[ºc
-- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - ¼ÒªO¤ŞÀº
+## ä½¿ç”¨å·¥å…·
+- [Visual Studio Code](https://visualstudio.microsoft.com/zh-hant/) - é–‹ç™¼ç’°å¢ƒ
+- [Express](https://www.npmjs.com/package/express) - æ‡‰ç”¨ç¨‹å¼æ¶æ§‹
+- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - æ¨¡æ¿å¼•æ“
 
-## ¦w¸Ë
-1. ¶}±Ò²×ºİ¾÷(Terminal)¡AClone ¦¹±M®×¦Ü¥»¾÷¹q¸£
+## å®‰è£
+1. é–‹å•Ÿçµ‚ç«¯æ©Ÿ(Terminal)ï¼ŒClone æ­¤å°ˆæ¡ˆè‡³æœ¬æ©Ÿé›»è…¦
 
 ```
 git clone https://github.com/aziz0916/restaurant_list.git
 ```
-2. ¶i¤J¦s©ñ¦¹±M®×ªº¸ê®Æ§¨
+2. é€²å…¥å­˜æ”¾æ­¤å°ˆæ¡ˆçš„è³‡æ–™å¤¾
 
 ```
 cd restaurant_list
 ```
-3. ¦w¸Ë npm ®M¥ó
+3. å®‰è£ npm å¥—ä»¶
 
 ```
 npm install
 ```
-4. °õ¦æµ{¦¡
+4. åŸ·è¡Œç¨‹å¼
 
 ```
 npm run dev
