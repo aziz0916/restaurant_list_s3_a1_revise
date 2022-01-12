@@ -60,13 +60,15 @@ app.get('/search', (req, res) => {
   res.render('index', { restaurants, keyword })
 })
 
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const id = req.params.restaurant_id
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === id)
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
 
-  res.render('show', { restaurant })
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('detail', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, () => {
-  console.log(`Express is running on http://localhost:${port}`)
+  console.log(`Express server is running on http://localhost:${port}`)
 })
