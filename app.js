@@ -60,12 +60,43 @@ app.get('/search', (req, res) => {
   res.render('index', { restaurants, keyword })
 })
 
-app.get('/restaurants/:id', (req, res) => {
-  const id = req.params.id
+app.get('/restaurants/:restaurants_id', (req, res) => {
+  const restaurants_id = req.params.restaurants_id
 
-  return Restaurant.findById(id)
+  return Restaurant.findById(restaurants_id)
     .lean()
     .then(restaurant => res.render('detail', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+app.get('/restaurants/:restaurants_id/edit', (req, res) => {
+  const restaurants_id = req.params.restaurants_id
+
+  return Restaurant.findById(restaurants_id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:restaurants_id/edit', (req, res) => {
+  const restaurants_id = req.params.restaurants_id
+  const { id, name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+
+  return Restaurant.findById(restaurants_id)
+    .then(restaurant => {
+      restaurant.id = Number(id)
+      restaurant.name = name
+      restaurant.name_en = name_en
+      restaurant.category = category
+      restaurant.image = image
+      restaurant.location = location
+      restaurant.phone = phone
+      restaurant.google_map = google_map
+      restaurant.rating = Number(rating)
+      restaurant.description = description
+      restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${restaurants_id}`))
     .catch(error => console.log(error))
 })
 
