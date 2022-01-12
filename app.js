@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 const restaurantList = require('./restaurant.json')
 const Restaurant = require('./models/restaurant.js')
@@ -23,11 +24,29 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   return Restaurant.find()
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
+})
+
+app.get('/restaurants/new', (req, res) => {
+  res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+  const { id, name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+
+  return Restaurant.create({
+    id: Number(id),
+    name, name_en, category, image, location, phone, google_map,
+    rating: Number(rating),
+    description
+  })
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
