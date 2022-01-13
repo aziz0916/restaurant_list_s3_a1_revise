@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
 const Restaurant = require('./models/restaurant.js')
+const sortResult = require('./sort.js')
 
 const app = express()
 const port = 3000
@@ -20,7 +21,18 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main', helpers: {
+    //建立selected函式來讓index.handlebars中select的option被選取時產生selected
+    selected: function (option, value) {
+      if (option === value) {
+        return 'selected'
+      } else {
+        return ''
+      }
+    }
+  }
+}))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -111,6 +123,12 @@ app.post('/restaurants/:restaurants_id/delete', (req, res) => {
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
+})
+
+app.post('/sort', (req, res) => {
+  const sort = req.body.sort
+  //建立sortResult函式來讓index畫面在得到不同sort值時產生不同的排序結果
+  sortResult(sort, res, Restaurant)
 })
 
 app.listen(port, () => {
