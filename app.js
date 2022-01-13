@@ -3,7 +3,6 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-const restaurantList = require('./restaurant.json')
 const Restaurant = require('./models/restaurant.js')
 
 const app = express()
@@ -52,12 +51,17 @@ app.post('/restaurants', (req, res) => {
 
 app.get('/search', (req, res) => {
   let keyword = req.query.keyword
-  const restaurants = restaurantList.results.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase().trim()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase().trim()))
 
-  if (!restaurants.length) {
-    keyword = `您輸入的關鍵字：${keyword} 沒有符合條件的餐廳`
-  }
-  res.render('index', { restaurants, keyword })
+  return Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      restaurants = restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase().trim()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase().trim()))
+      if (!restaurants.length) {
+        keyword = `您輸入的關鍵字：${keyword} 沒有符合條件的餐廳`
+      }
+      res.render('index', { restaurants, keyword })
+    })
+    .catch(error => console.log(error))
 })
 
 app.get('/restaurants/:restaurants_id', (req, res) => {
