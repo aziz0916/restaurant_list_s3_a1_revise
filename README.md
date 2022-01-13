@@ -51,7 +51,12 @@ cd restaurant_list_a7
 ```
 npm install
 ```
-4. 執行程式
+4. 引入種子資料
+
+```
+npm run seed
+```
+5. 執行程式
 
 ```
 npm run dev
