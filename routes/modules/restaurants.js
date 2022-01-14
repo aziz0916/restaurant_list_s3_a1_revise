@@ -12,7 +12,13 @@ router.post('/', (req, res) => {
 
   return Restaurant.create({
     id: Number(id),
-    name, name_en, category, image, location, phone, google_map,
+    name,
+    name_en,
+    category,
+    image,
+    location,
+    phone,
+    google_map,
     rating: Number(rating),
     description
   })

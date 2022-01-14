@@ -10,8 +10,9 @@ const app = express()
 const port = 3000
 
 app.engine('handlebars', exphbs({
-  defaultLayout: 'main', helpers: {
-    //建立selected函式來讓index.handlebars中select的option被選取時產生selected
+  defaultLayout: 'main',
+  helpers: {
+    // 建立selected函式來讓index.handlebars中select的option被選取時產生selected
     selected: function (option, value) {
       if (option === value) {
         return 'selected'

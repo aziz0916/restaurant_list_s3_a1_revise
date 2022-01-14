@@ -28,7 +28,7 @@ router.get('/search', (req, res) => {
 
 router.post('/sort', (req, res) => {
   const sort = req.body.sort
-  //建立sortResult函式來讓index畫面在得到不同sort值時產生不同的排序結果
+  // 建立sortResult函式來讓index畫面在得到不同sort值時產生不同的排序結果
   sortResult(sort, res, Restaurant)
 })
 
