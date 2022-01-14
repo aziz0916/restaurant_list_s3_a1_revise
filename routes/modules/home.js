@@ -8,7 +8,10 @@ router.get('/', (req, res) => {
   return Restaurant.find()
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 router.get('/search', (req, res) => {
@@ -23,7 +26,10 @@ router.get('/search', (req, res) => {
       }
       res.render('index', { restaurants, keyword })
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 router.post('/sort', (req, res) => {

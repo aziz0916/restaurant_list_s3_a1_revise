@@ -22,7 +22,10 @@ router.post('/', (req, res) => {
     description
   })
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 router.get('/:restaurants_id', (req, res) => {
@@ -31,7 +34,10 @@ router.get('/:restaurants_id', (req, res) => {
   return Restaurant.findById(restaurants_id)
     .lean()
     .then(restaurant => res.render('detail', { restaurant }))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 router.get('/:restaurants_id/edit', (req, res) => {
@@ -40,7 +46,10 @@ router.get('/:restaurants_id/edit', (req, res) => {
   return Restaurant.findById(restaurants_id)
     .lean()
     .then(restaurant => res.render('edit', { restaurant }))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 router.put('/:restaurants_id', (req, res) => {
@@ -61,7 +70,10 @@ router.put('/:restaurants_id', (req, res) => {
       restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${restaurants_id}`))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 router.delete('/:restaurants_id', (req, res) => {
@@ -70,7 +82,10 @@ router.delete('/:restaurants_id', (req, res) => {
   return Restaurant.findById(restaurants_id)
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { status: 500, error: error.message })
+    })
 })
 
 module.exports = router
