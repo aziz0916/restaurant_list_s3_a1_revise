@@ -8,10 +8,9 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const { id, name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
 
   return Restaurant.create({
-    id: Number(id),
     name,
     name_en,
     category,
@@ -46,11 +45,10 @@ router.get('/:restaurants_id/edit', (req, res) => {
 
 router.put('/:restaurants_id', (req, res) => {
   const restaurants_id = req.params.restaurants_id
-  const { id, name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
 
   return Restaurant.findById(restaurants_id)
     .then(restaurant => {
-      restaurant.id = Number(id)
       restaurant.name = name
       restaurant.name_en = name_en
       restaurant.category = category
