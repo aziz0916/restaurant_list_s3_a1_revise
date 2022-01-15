@@ -36,7 +36,7 @@
 - [MongoDB](https://www.mongodb.com/) - 資料庫
 - [Mongoose](https://www.npmjs.com/package/mongoose) - MongoDB 的 ODM 可以在程式中與資料庫溝通
 - [body-parser](https://www.npmjs.com/package/body-parser) - Express用於解析請求(body)資料的中介軟體
-- [method-override](https://www.npmjs.com/package/method-override) - 增加除瀏覽器自帶的GET與POST以外的偽請求，增加介面語義話
+- [method-override](https://www.npmjs.com/package/method-override) - 增加除瀏覽器自帶的GET與POST以外的偽請求，增加介面語義化
 
 ## 安裝
 1. 開啟終端機(Terminal)，Clone 此專案至本機電腦
