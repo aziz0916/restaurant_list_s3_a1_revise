@@ -44,7 +44,7 @@
             </div>
 
             <span class="badge badge-pill badge-danger font-weight-normal">
-              {{this.rating}}
+              {{#if this.rating}} {{this.rating}} {{else}} -- {{/if}}
               <i class="fas fa-star fa-xs"></i>
             </span>
 
