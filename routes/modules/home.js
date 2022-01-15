@@ -2,40 +2,37 @@ const express = require('express')
 const router = express.Router()
 
 const Restaurant = require('../../models/restaurant.js')
-const sortResult = require('../../sort.js')
 
 router.get('/', (req, res) => {
-  return Restaurant.find()
-    .lean()
-    .then(restaurants => res.render('index', { restaurants }))
-    .catch(error => {
-      console.log(error)
-      res.render('errorPage', { status: 500, error: error.message })
-    })
-})
+  let keyword = !req.query.keyword ? '' : req.query.keyword.trim()
+  const sort = req.query.sort
+  let sortSelect = {}
 
-router.get('/search', (req, res) => {
-  let keyword = req.query.keyword
+  if (Number(sort) === 1) {
+    sortSelect = { name: 'asc' }
+  } else if (Number(sort) === 2) {
+    sortSelect = { name: 'desc' }
+  } else if (Number(sort) === 3) {
+    sortSelect = { category: 'asc' }
+  } else if (Number(sort) === 4) {
+    sortSelect = { location: 'asc' }
+  } else {
+    sortSelect = {}
+  }
 
-  return Restaurant.find()
+  return Restaurant.find({ $or: [{ name: { $regex: keyword, $options: 'i' } }, { category: { $regex: keyword, $options: 'i' } }] })
     .lean()
+    .sort(sortSelect)
     .then(restaurants => {
-      restaurants = restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase().trim()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase().trim()))
       if (!restaurants.length) {
         keyword = `您輸入的關鍵字：${keyword} 沒有符合條件的餐廳`
       }
-      res.render('index', { restaurants, keyword })
+      res.render('index', { restaurants, keyword, sort })
     })
     .catch(error => {
       console.log(error)
       res.render('errorPage', { status: 500, error: error.message })
     })
-})
-
-router.post('/sort', (req, res) => {
-  const sort = req.body.sort
-  // 建立sortResult函式來讓index畫面在得到不同sort值時產生不同的排序結果
-  sortResult(sort, res, Restaurant)
 })
 
 module.exports = router

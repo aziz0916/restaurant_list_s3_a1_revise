@@ -3,7 +3,7 @@
   <div class="row ">
     <div class="col-md-10 col-12 mx-auto d-flex justify-content-between">
       <div class="col-4 mb-0 pl-0">
-        <form action="/search">
+        <form action="/">
           <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
               <span class="input-group-text" id="addon-wrapping"><i class="fas fa-search"></i></span>
@@ -14,7 +14,7 @@
         </form>
       </div>
       <div class="col-4 mb-0 pr-0">
-        <form action="/sort" method="POST">
+        <form action="/">
           <select name="sort" class="w-100 rounded" style="height: 38px;" onchange="this.form.submit();">
             <option value="0">Sort</option>
             <option value="1" {{selected sort '1' }}>A->Z</option>
