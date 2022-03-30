@@ -1,4 +1,5 @@
 function getSortQuery(condition) {
+  //Object.freeze()是用來「凍結」一個物件的，防止物件被改變，所以無法去修改sortEnum的內容
   const sortEnum = Object.freeze({
     NAME_ASC: 1,
     NAME_DESC: 2,
