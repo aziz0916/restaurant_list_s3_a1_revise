@@ -9,8 +9,9 @@ require('./config/mongoose.js')
 const app = express()
 const port = 3000
 
-app.engine('handlebars', exphbs({
+app.engine('hbs', exphbs({
   defaultLayout: 'main',
+  extname: '.hbs',
   helpers: {
     // 建立selected函式來讓index.handlebars中select的option被選取時產生selected
     selected: function (option, value) {
@@ -22,7 +23,7 @@ app.engine('handlebars', exphbs({
     }
   }
 }))
-app.set('view engine', 'handlebars')
+app.set('view engine', 'hbs')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
