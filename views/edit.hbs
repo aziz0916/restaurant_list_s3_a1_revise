@@ -1,7 +1,7 @@
 <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST" class="w-50 m-auto pt-5">
   <div class="form-group row">
     <label for="inputName"
-      class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center">中文名</label>
+      class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center"><span style="color:red;">*</span>中文名</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="inputName" name="name" value="{{restaurant.name}}" required>
     </div>
@@ -29,7 +29,7 @@
   </div>
   <div class="form-group row">
     <label for="inputLocation"
-      class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center">地址</label>
+      class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center"><span style="color:red;">*</span>地址</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="inputLocation" name="location" value="{{restaurant.location}}"
         required>
@@ -37,7 +37,7 @@
   </div>
   <div class="form-group row">
     <label for="inputPhone"
-      class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center">電話</label>
+      class="col-sm-2 col-form-label btn-warning text-muted font-weight-bolder px-0 text-center"><span style="color:red;">*</span>電話</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="inputPhone" name="phone" value="{{restaurant.phone}}" required>
     </div>
