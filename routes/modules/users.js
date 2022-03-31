@@ -4,12 +4,13 @@ const bcrypt = require('bcryptjs')
 const router = express.Router()
 
 const User = require('../../models/user')
+const { loginCheck } = require('../../middleware/login')
 
 router.get('/login', (req, res) => {
   res.render('login')
 })
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', loginCheck, passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/users/login',
   failureFlash: true
